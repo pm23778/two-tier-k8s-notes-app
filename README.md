@@ -2,12 +2,7 @@
 # 🚀 Full Two-Tier Kubernetes Notes App Setup + GitHub Push
 # ===========================================================
 
-# 1️⃣ Go to project folder
-cd ~/k8s   # change this to your project folder path
 
-# 2️⃣ Create README.md with full documentation
-cat > README.md << 'EOF'
-# 🧩 Two-Tier Notes App on Kubernetes
 
 This project demonstrates a **Two-Tier Application Architecture** deployed on **Kubernetes** using:
 - **Backend (API)**
