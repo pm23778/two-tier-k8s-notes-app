@@ -1,6 +1,6 @@
-# ===========================================================
+# ================================================
 # 🚀 Full Two-Tier Kubernetes Notes App Setup + GitHub Push
-# ===========================================================
+# ================================================
 
 
 
@@ -84,3 +84,30 @@ Open browser or API client:
 \`\`\`bash
 kubectl delete namespace notes-app
 \`\`\` 
+
+
+##Deploy MySQL
+kubectl apply -f mysql-service.yml
+kubectl apply -f mysql-statefulset.yml
+
+##Verify MySQL pod:
+kubectl get pods -n notes-app
+kubectl describe pod <mysql-pod-name> -n notes-app
+
+##Deploy Backend
+kubectl apply -f backend-service.yml
+kubectl apply -f backend-deployment.yml
+
+##Check backend pods:
+kubectl get pods -n notes-app
+kubectl describe pod <backend-pod-name> -n notes-app
+
+##Check services:
+kubectl get svc -n notes-app
+
+##Access Backend Locally
+kubectl port-forward svc/two-tier-backend 5000:5000 -n notes-app
+
+##Open in browser
+http://localhost:5000
+
