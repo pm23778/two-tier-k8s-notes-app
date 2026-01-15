@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet 
+metadata:
+  name: mysql-stateful
+  namespace: notes-app
+spec:
+  serviceName:  mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: prashanrmaurya/mysql:latest
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: devops
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql
+          mountPath: /var/lib/mysql
+
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: two-tier-backend
+  namespace: notes-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: two-tier-backend
+  template:
+    metadata:
+      labels:
+        app: two-tier-backend
+    spec:
+      containers:
+      - name: backend
+        image: prashanrmaurya/two-tier-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MYSQL_HOST
+          value: mysql
+        - name: MYSQL_USER
+          value: root
+        - name: MYSQL_PASSWORD
+          value: root
+        - name: MYSQL_DB
+          value: devops

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: two-tier-backend
+  namespace: notes-app
+spec:
+  selector:
+    app: two-tier-backend
+  ports:
+  - port: 5000
+    targetPort: 5000
+  type: ClusterIP
