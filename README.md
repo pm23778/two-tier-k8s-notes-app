@@ -1,5 +1,5 @@
 # ================================================
-# 🚀 Full Two-Tier Kubernetes Notes App Setup + GitHub Push
+# 🚀 Full Two-Tier Kubernetes Notes App Setup
 # ================================================
 
 
